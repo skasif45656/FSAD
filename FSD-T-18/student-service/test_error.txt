@@ -1,0 +1,136 @@
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/C:/Program%20Files/apache-maven-3.9.11/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------< com.example:student-service >---------------------
+[INFO] Building student-service 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ student-service ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ student-service ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ student-service ---
+[INFO] skip non existing resourceDirectory C:\Users\Dhanush VR\Documents\FSD-8-15\FSD-T-18\student-service\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ student-service ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- surefire:3.1.2:test (default-test) @ student-service ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.example.studentservice.StudentControllerTest
+10:07:49.617 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.studentservice.StudentControllerTest]: StudentControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+10:07:49.764 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.studentservice.StudentServiceApplication for test class com.example.studentservice.StudentControllerTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2026-04-27T10:07:50.242+05:30  INFO 29376 --- [           main] c.e.s.StudentControllerTest              : Starting StudentControllerTest using Java 25.0.2 with PID 29376 (started by Dhanush VR in C:\Users\Dhanush VR\Documents\FSD-8-15\FSD-T-18\student-service)
+2026-04-27T10:07:50.243+05:30  INFO 29376 --- [           main] c.e.s.StudentControllerTest              : No active profile set, falling back to 1 default profile: "default"
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by net.bytebuddy.dynamic.loading.ClassInjector$UsingUnsafe$Dispatcher$CreationAction (file:/C:/Users/Dhanush%20VR/.m2/repository/net/bytebuddy/byte-buddy/1.14.13/byte-buddy-1.14.13.jar)
+WARNING: Please consider reporting this to the maintainers of class net.bytebuddy.dynamic.loading.ClassInjector$UsingUnsafe$Dispatcher$CreationAction
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+2026-04-27T10:07:52.475+05:30  INFO 29376 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-04-27T10:07:52.477+05:30  INFO 29376 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-04-27T10:07:52.480+05:30  INFO 29376 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-04-27T10:07:52.530+05:30  INFO 29376 --- [           main] c.e.s.StudentControllerTest              : Started StudentControllerTest in 2.671 seconds (process running for 4.035)
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.340 s -- in com.example.studentservice.StudentControllerTest
+[INFO] Running com.example.studentservice.StudentRepositoryTest
+2026-04-27T10:07:52.785+05:30  INFO 29376 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.studentservice.StudentRepositoryTest]: StudentRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-04-27T10:07:52.813+05:30  INFO 29376 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.studentservice.StudentServiceApplication for test class com.example.studentservice.StudentRepositoryTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2026-04-27T10:07:52.888+05:30  INFO 29376 --- [           main] c.e.s.StudentRepositoryTest              : Starting StudentRepositoryTest using Java 25.0.2 with PID 29376 (started by Dhanush VR in C:\Users\Dhanush VR\Documents\FSD-8-15\FSD-T-18\student-service)
+2026-04-27T10:07:52.889+05:30  INFO 29376 --- [           main] c.e.s.StudentRepositoryTest              : No active profile set, falling back to 1 default profile: "default"
+2026-04-27T10:07:53.070+05:30  INFO 29376 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-27T10:07:53.122+05:30  INFO 29376 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 43 ms. Found 1 JPA repository interface.
+2026-04-27T10:07:53.169+05:30  INFO 29376 --- [           main] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2026-04-27T10:07:53.251+05:30  INFO 29376 --- [           main] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:2e05e905-53e4-4843-8042-c728c2d8f906;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2026-04-27T10:07:53.568+05:30  INFO 29376 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-27T10:07:53.646+05:30  INFO 29376 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2026-04-27T10:07:53.687+05:30  INFO 29376 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-27T10:07:53.853+05:30  INFO 29376 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-27T10:07:53.911+05:30  WARN 29376 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-27T10:07:54.642+05:30  INFO 29376 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: drop table if exists students cascade 
+Hibernate: create table students (id bigint generated by default as identity, name varchar(255), primary key (id))
+2026-04-27T10:07:54.678+05:30  INFO 29376 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-27T10:07:54.995+05:30  INFO 29376 --- [           main] c.e.s.StudentRepositoryTest              : Started StudentRepositoryTest in 2.174 seconds (process running for 6.501)
+Hibernate: insert into students (name,id) values (?,default)
+Hibernate: insert into students (name,id) values (?,default)
+Hibernate: insert into students (name,id) values (?,default)
+Hibernate: select s1_0.id,s1_0.name from students s1_0
+Hibernate: insert into students (name,id) values (?,default)
+Hibernate: insert into students (name,id) values (?,default)
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.489 s -- in com.example.studentservice.StudentRepositoryTest
+[INFO] Running com.example.studentservice.StudentServiceTest
+2026-04-27T10:07:55.272+05:30  INFO 29376 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.studentservice.StudentServiceTest]: StudentServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-04-27T10:07:55.275+05:30  INFO 29376 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.studentservice.StudentServiceApplication for test class com.example.studentservice.StudentServiceTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2026-04-27T10:07:55.324+05:30  INFO 29376 --- [           main] c.e.studentservice.StudentServiceTest    : Starting StudentServiceTest using Java 25.0.2 with PID 29376 (started by Dhanush VR in C:\Users\Dhanush VR\Documents\FSD-8-15\FSD-T-18\student-service)
+2026-04-27T10:07:55.325+05:30  INFO 29376 --- [           main] c.e.studentservice.StudentServiceTest    : No active profile set, falling back to 1 default profile: "default"
+2026-04-27T10:07:55.541+05:30  INFO 29376 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-27T10:07:55.551+05:30  INFO 29376 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 1 JPA repository interface.
+2026-04-27T10:07:55.659+05:30  INFO 29376 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-27T10:07:55.663+05:30  INFO 29376 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-27T10:07:55.669+05:30  INFO 29376 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-27T10:07:55.671+05:30  INFO 29376 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-27T10:07:55.682+05:30  INFO 29376 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn8: url=jdbc:h2:mem:studentdb user=SA
+2026-04-27T10:07:55.685+05:30  INFO 29376 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-27T10:07:55.689+05:30  WARN 29376 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-27T10:07:55.730+05:30  INFO 29376 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: drop table if exists students cascade 
+Hibernate: create table students (id bigint generated by default as identity, name varchar(255), primary key (id))
+2026-04-27T10:07:55.734+05:30  INFO 29376 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by org.apache.tomcat.jni.Library in an unnamed module (file:/C:/Users/Dhanush%20VR/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.20/tomcat-embed-core-10.1.20.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+2026-04-27T10:07:55.871+05:30  WARN 29376 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-27T10:07:55.992+05:30  INFO 29376 --- [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:studentdb'
+2026-04-27T10:07:56.034+05:30  INFO 29376 --- [           main] c.e.studentservice.StudentServiceTest    : Started StudentServiceTest in 0.749 seconds (process running for 7.54)
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.784 s -- in com.example.studentservice.StudentServiceTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  9.918 s
+[INFO] Finished at: 2026-04-27T10:07:56+05:30
+[INFO] ------------------------------------------------------------------------
