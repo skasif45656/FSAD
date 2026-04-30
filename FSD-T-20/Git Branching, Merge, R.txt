@@ -1,0 +1,187 @@
+# TASK 20 – Git Branching, Merge, Rebase, Conflict Resolution
+
+# -------------------------------
+
+# 1. SETUP
+
+# -------------------------------
+
+# Create project folder
+
+mkdir git-lab
+cd git-lab
+
+# Initialize Git repository
+
+git init
+
+# Rename branch to main
+
+git branch -M main
+
+# Configure Git
+
+git config --global user.name "Your Name"
+git config --global user.email "[your@email.com](mailto:your@email.com)"
+
+# -------------------------------
+
+# 2. INITIAL COMMIT
+
+# -------------------------------
+
+# Create file
+
+echo "Hello Main Branch" > file.txt
+
+# Add file
+
+git add file.txt
+
+# Commit
+
+git commit -m "Initial commit"
+
+# -------------------------------
+
+# 3. CREATE FEATURE BRANCH (feature1)
+
+# -------------------------------
+
+# Create and switch to feature1
+
+git checkout -b feature1
+
+# Modify file
+
+echo "Feature 1 changes" >> file.txt
+
+# Add changes
+
+git add file.txt
+
+# Commit
+
+git commit -m "Feature 1 update"
+
+# -------------------------------
+
+# 4. MERGE FEATURE1 INTO MAIN
+
+# -------------------------------
+
+# Switch to main
+
+git checkout main
+
+# Merge feature1
+
+git merge feature1
+
+# -------------------------------
+
+# 5. REBASE (feature2)
+
+# -------------------------------
+
+# Create new branch
+
+git checkout -b feature2
+
+# Modify file
+
+echo "Feature 2 changes" >> file.txt
+
+# Add changes
+
+git add file.txt
+
+# Commit
+
+git commit -m "Feature 2 update"
+
+# Rebase onto main
+
+git rebase main
+
+# -------------------------------
+
+# 6. CREATE MERGE CONFLICT
+
+# -------------------------------
+
+# Modify in main branch
+
+git checkout main
+echo "Main branch edit" > file.txt
+git add file.txt
+git commit -m "Main update"
+
+# Modify in feature1 branch
+
+git checkout feature1
+echo "Feature branch edit" > file.txt
+git add file.txt
+git commit -m "Feature update"
+
+# Merge to create conflict
+
+git checkout main
+git merge feature1
+
+# -------------------------------
+
+# 7. RESOLVE MERGE CONFLICT
+
+# -------------------------------
+
+# Check status
+
+git status
+
+# Open file.txt and resolve manually:
+
+# <<<<<<< HEAD
+
+# Main branch edit
+
+# =======
+
+# Feature branch edit
+
+# >>>>>>> feature1
+
+# After editing file:
+
+git add file.txt
+
+# Commit resolved conflict
+
+git commit -m "Resolved merge conflict"
+
+# -------------------------------
+
+# 8. REBASE CONFLICT (OPTIONAL)
+
+# -------------------------------
+
+# If conflict during rebase:
+
+git add file.txt
+git rebase --continue
+
+# -------------------------------
+
+# 9. VERIFY RESULT
+
+# -------------------------------
+
+# View commit history
+
+git log --oneline --graph --all
+
+# -------------------------------
+
+# END OF TASK
+
+# -------------------------------

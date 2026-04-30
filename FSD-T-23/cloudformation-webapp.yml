@@ -1,0 +1,133 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >
+  Simple web application stack with Amazon Linux EC2 instances,
+  Security Group (HTTP/SSH), S3 bucket, Launch Template, and Auto Scaling Group.
+
+Parameters:
+  VpcId:
+    Type: AWS::EC2::VPC::Id
+    Description: VPC where the resources will be deployed
+
+  PublicSubnets:
+    Type: List<AWS::EC2::Subnet::Id>
+    Description: At least two public subnets for the Auto Scaling Group
+
+  KeyName:
+    Type: AWS::EC2::KeyPair::KeyName
+    Description: Existing EC2 KeyPair name for SSH access
+
+  InstanceType:
+    Type: String
+    Default: t3.micro
+    AllowedValues:
+      - t2.micro
+      - t3.micro
+      - t3.small
+      - t3.medium
+    Description: EC2 instance type for web servers
+
+  AllowedSshCidr:
+    Type: String
+    Default: 0.0.0.0/0
+    Description: CIDR block allowed to SSH (port 22). Restrict in production.
+
+Resources:
+  WebSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow HTTP (80) and SSH (22)
+      VpcId: !Ref VpcId
+      SecurityGroupIngress:
+        - Description: Allow HTTP
+          IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+        - Description: Allow SSH
+          IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: !Ref AllowedSshCidr
+      SecurityGroupEgress:
+        - Description: Allow all outbound traffic
+          IpProtocol: -1
+          CidrIp: 0.0.0.0/0
+      Tags:
+        - Key: Name
+          Value: web-sg
+
+  AppBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      VersioningConfiguration:
+        Status: Enabled
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      Tags:
+        - Key: Name
+          Value: simple-webapp-storage
+
+  WebLaunchTemplate:
+    Type: AWS::EC2::LaunchTemplate
+    Properties:
+      LaunchTemplateName: simple-webapp-lt
+      LaunchTemplateData:
+        ImageId: !Sub "{{resolve:ssm:/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64}}"
+        InstanceType: !Ref InstanceType
+        KeyName: !Ref KeyName
+        SecurityGroupIds:
+          - !Ref WebSecurityGroup
+        UserData:
+          Fn::Base64: !Sub |
+            #!/bin/bash
+            dnf update -y
+            dnf install -y httpd
+            systemctl enable httpd
+            systemctl start httpd
+            cat > /var/www/html/index.html << 'EOF'
+            <!doctype html>
+            <html>
+            <head><title>Simple Web App</title></head>
+            <body>
+              <h1>Welcome to the Simple Web App</h1>
+              <p>Deployed with AWS CloudFormation + Auto Scaling Group.</p>
+            </body>
+            </html>
+            EOF
+
+  WebAutoScalingGroup:
+    Type: AWS::AutoScaling::AutoScalingGroup
+    Properties:
+      VPCZoneIdentifier: !Ref PublicSubnets
+      LaunchTemplate:
+        LaunchTemplateId: !Ref WebLaunchTemplate
+        Version: !GetAtt WebLaunchTemplate.LatestVersionNumber
+      MinSize: "1"
+      MaxSize: "3"
+      DesiredCapacity: "1"
+      HealthCheckType: EC2
+      HealthCheckGracePeriod: 180
+      Tags:
+        - Key: Name
+          Value: simple-webapp-asg-instance
+          PropagateAtLaunch: true
+
+Outputs:
+  SecurityGroupId:
+    Description: Security Group ID for web instances
+    Value: !Ref WebSecurityGroup
+
+  S3BucketName:
+    Description: S3 bucket name for application storage
+    Value: !Ref AppBucket
+
+  AutoScalingGroupName:
+    Description: Auto Scaling Group name
+    Value: !Ref WebAutoScalingGroup
