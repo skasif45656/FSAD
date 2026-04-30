@@ -1,0 +1,6 @@
+Output from hitting the API Gateway endpoint (http://localhost:8080/students) 4 times:
+
+Response from Student Service - Port: 8081
+Response from Student Service - Port: 8082
+Response from Student Service - Port: 8081
+Response from Student Service - Port: 8082

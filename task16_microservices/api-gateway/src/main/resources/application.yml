@@ -1,0 +1,32 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: student-service-route
+          uri: lb://STUDENT-SERVICE
+          predicates:
+            - Path=/students/**
+    
+    # Configure manual load balancing instances for STUDENT-SERVICE
+    loadbalancer:
+      ribbon:
+        enabled: false # Ensure Ribbon is disabled as we are using Spring Cloud LoadBalancer
+      instances:
+        STUDENT-SERVICE:
+          - instanceId: student-service-1
+            host: localhost
+            port: 8081
+            secure: false
+          - instanceId: student-service-2
+            host: localhost
+            port: 8082
+            secure: false
+  
+  # For newer Spring Cloud versions (like 2023.x), SimpleDiscoveryClient configuration is the standard way to hardcode instances
+  main:
+    web-application-type: reactive
